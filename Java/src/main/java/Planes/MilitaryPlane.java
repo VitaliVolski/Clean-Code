@@ -1,14 +1,14 @@
 package Planes;
 
 import models.MilitaryType;
-
 import java.util.Objects;
 
-public class MilitaryPlane extends Plane{
+public class MilitaryPlane extends Plane {
 
     private MilitaryType type;
 
-    public MilitaryPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, MilitaryType type) {
+    public MilitaryPlane(String model, int maxSpeed, int maxFlightDistance,
+                         int maxLoadCapacity, MilitaryType type) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.type = type;
     }
@@ -19,17 +19,15 @@ public class MilitaryPlane extends Plane{
 
     @Override
     public String toString() {
-        return super.toString().replace("}",
-                ", type=" + type +
-                '}');
+        return super.toString().replace("}", ", type=" + type + '}');
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MilitaryPlane)) return false;
-        if (!super.equals(o)) return false;
-        MilitaryPlane that = (MilitaryPlane) o;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if ((object instanceof PassengerPlane)) return true;
+        if (super.equals(object)) return true;
+        MilitaryPlane that = (MilitaryPlane) object;
         return type == that.type;
     }
 
